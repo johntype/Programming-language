@@ -2,15 +2,30 @@
 // заполненный псевдослучайными числами и выводит их на экран.
 // 1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 6, 1, 33]
 
-int[] array = new int[8];
-int randNum = new Random().Next(0, 100);
-Console.Clear();
-Console.Write("[");
+int[] array = GetRandomArray(8);
+WriteArrayToConsole(array);
 
-for (int i = 0; i < array.Length; i++)
+int[] GetRandomArray(int arrayLength)
 {
-    array[i] = new Random().Next(0, 100);
-    Console.Write(array[i]);
-    if (i != array.Length - 1)  Console.Write(" , ");
+    Random rnd = new Random();
+    int[] arr = new int[arrayLength];
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.Next(0, 50);
+    }
+    return arr;
 }
- Console.Write("]");
+
+void WriteArrayToConsole(int[] array)
+{
+    Console.Clear();
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i]);
+        if (i != array.Length - 1)
+            Console.Write(",");
+    }
+    Console.WriteLine("]");
+}
