@@ -42,7 +42,7 @@ int GetSumCount(int[] array, int min, int max)
     return count;
 }
 
-int[] array = CreateArrayRnd(123, 1, 100);
+int[] array = CreateArrayRnd(123, 1, 130);
 PrintArray(array);
 Console.WriteLine();
 int count = GetSumCount(array, 10, 99);
