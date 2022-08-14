@@ -27,32 +27,53 @@ void PrintArray(int[] array)
     }
 }
 
-int[] arraySum(int[] array)
+// int[] arraySum(int[] array)
+// {
+//     if (array.Length % 2 == 0)
+//     {
+//         int[] newArray = new int[array.Length / 2];
+//         for (int i = 0; i < array.Length / 2; i++)
+//         {
+//             newArray[i] = array[i] * array[array.Length - 1 - i];
+//         }
+//         return newArray;
+//     }
+//     else
+//     {
+//         int[] newArray = new int[array.Length / 2 + 1];
+//         for (int i = 0; i < array.Length / 2; i++)
+//         {
+//             newArray[i] = array[i] * array[array.Length - 1 - i];
+//         }
+//         newArray[newArray.Length - 1] = array[array.Length / 2];
+//         return newArray;
+//     }
+// }
+
+int[] MultiplyArray(int[] array)
 {
+    int[] newArray;
+    int baseArrayLength = array.Length / 2;
     if (array.Length % 2 == 0)
     {
-        int[] newArray = new int[array.Length / 2];
-        for (int i = 0; i < array.Length / 2; i++)
-        {
-            newArray[i] = array[i] * array[array.Length - 1 - i];
-        }
-        return newArray;
+        newArray = new int[baseArrayLength];
     }
     else
     {
-        int[] newArray = new int[array.Length / 2 + 1];
-        for (int i = 0; i < array.Length / 2; i++)
-        {
-            newArray[i] = array[i] * array[array.Length - 1 - i];
-        }
-        newArray[newArray.Length - 1] = array[array.Length / 2];
-        return newArray;
+        newArray = new int[baseArrayLength + 1];
+        newArray[baseArrayLength] = array[baseArrayLength];
     }
-}
 
+    for (int i = 0; i < baseArrayLength; i++)
+    {
+        newArray[i] = array[i] * array[array.Length - 1 - i];
+    }
+
+    return newArray;
+}
 
 int[] array = CreateArrayRnd(5, 1, 5);
 PrintArray(array);
 Console.WriteLine();
-int[] count = arraySum(array);
+int[] count = MultiplyArray(array);
 PrintArray(count);
