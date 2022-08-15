@@ -42,6 +42,18 @@ int GetSumElem(int[,] matrix)
     return sum;
 }
 
+int GetSumOpt(int[,] arr)
+{
+    int sum = 0;
+    int length = 0;
+    if (arr.GetLength(0) >= arr.GetLength(1)) length = arr.GetLength(1);
+    else length = arr.GetLength(0);
+    for (int j = 0; j < length; j++)
+        sum += arr[j, j];
+
+    return sum;
+}
+
 void PrintMatrix(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -56,7 +68,9 @@ void PrintMatrix(int[,] array)
     }
 }
 
-int[,] matrix = GetMatrix(5,5);
+int[,] matrix = GetMatrix(5, 5);
 PrintMatrix(matrix);
 int result = GetSumElem(matrix);
 Console.WriteLine($"Сумма элементов главной диагонали равна {result}");
+int result2 = GetSumOpt(matrix);
+Console.WriteLine($"Оптимизация: cумма элементов главной диагонали равна {result2}");
