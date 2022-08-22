@@ -62,4 +62,4 @@ int[,] matrix = GetMatrix(5, 4);
 PrintMatrix(matrix);
 Console.WriteLine();
 int result = GetMinSumLine(matrix);
-Console.WriteLine ($"Наименьшая сумма значений всех элементов в {result} строке" );
+Console.WriteLine($"Наименьшая сумма значений всех элементов в {result} строке");
