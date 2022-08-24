@@ -24,5 +24,5 @@ int Sum(int n, int sum)
     return Sum(n / 10, sum1);
 }
 
-int c = Sum(n,0);
+int c = Sum(n,sum1);
 Console.WriteLine(c);
